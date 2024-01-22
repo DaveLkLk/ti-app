@@ -1,0 +1,287 @@
+:root{
+  --bg-body: linear-gradient(to right, #1e2638, #1c2333);
+  --bg-container: #293042;
+  /* estilos de boton */
+  --size-icon: 32px;
+  --size-menu: 45px;
+  --radius-lg: 20px;
+  --btn-submit-radius: 10px;
+  --btn-icon-radius: 5px;
+  /*  */
+  --clr-title: #ffffff;
+  --clr-input: #ffffff;
+  --clr-inactive: #adadad;
+  --clr-active: #ffffff;
+  /* navigation colors */
+  --clr-bg-item: #d0d0e7;
+  --clr-nav-item: var(--clr-bg-item);
+  --clr-nav-item-hover: #ffffff;
+
+  /* margenes */
+  --container-gap: 1rem;
+  --padd-block: .5rem;
+  --padd-med: .5rem;
+  --padd-1: 1rem;
+  --padd-2: 1.5rem;
+
+  /* TRANSITION STYLE */
+  --tr-e-out: 0.3s ease-in-out;
+  --tr-linear: 0.3s linear;
+  /* ANIMATION BORDERED */
+  --border-pasive: #2e3852;
+  --border-active: #5174cd;
+
+  --bg-fondo-shadow: -2px -2px 1px #17213aa8,
+    -5px -5px 10px #16213f,
+    2px 2px 1px #151b29a2,
+    5px 5px 10px #181e2fc9;
+  /* CONTAINER CHILDS */
+  --sct-card-bg: #20283c;
+  --sct-card-shadow: -3px -3px 2px #323b53,
+    -7px -7px 15px #323d57,
+    3px 3px 2px #151b29,
+    7px 7px 15px #181e2f;
+  --sct-card-shadow-active: -3px -3px 2px #37466923,
+    -7px -7px 15px #3d4b6da1,
+    3px 3px 2px #0e131fe0,
+    7px 7px 15px #1e273fbb;
+  /* CONTAINER DE CADA GRUPO */
+  --group-bg: #18469a;
+  --group-clr: var(--clr-active);
+  --xy-sm: 1px;
+  --xy-lg: 5px;
+  --blur-sm: 2px;
+  --blur-lg: 10px;
+  --shadow-clr-left: var(--group-bg);
+  --shadow-clr-left-blur: #2959d1dd;
+  --shadow-clr-right: #131825;
+  --shadow-clr-right-blur: #181e2f;
+  --sct-card-group-shadow: 
+    calc(var(--xy-sm) * -1) calc(var(--xy-sm) * -1) var(--blur-sm) var(--shadow-clr-left),
+    calc(var(--xy-lg) * -1) calc(var(--xy-lg) * -1) var(--blur-lg) var(--shadow-clr-left-blur),
+    calc(var(--xy-sm) * 1) calc(var(--xy-sm) * 1) var(--blur-sm) var(--shadow-clr-right),
+    calc(var(--xy-lg) * 1) calc(var(--xy-lg) * 1) var(--blur-lg) var(--shadow-clr-right-blur)
+    ;
+  --clr-900: #1c3063;
+  --clr-600: #226bee;
+  --clr-txt: #ffffff;
+
+  /* ITEMS DE FORMULARIO */
+  --form-inp-bg: #2e3852;
+  --form-inp-clr: #ededed;
+  
+  /* Colores de fondo a botones */
+    /* DEFAULT */
+  --btn-inactive: #9e9e9e;
+  --btn-focus: #ffffff;
+  --btn-dark: #191919;
+
+  --btn-toggle-shadow:
+    -2px -2px 5px #b3b3b3,
+    3px 3px 5px black;
+  --btn-shadow-svg: 0 0 5px #f7f7f7;
+    /* 1 */
+  --btn-change-bg: #364a9b;
+  --btn-change-bg-hover: #4760c2;
+  --btn-change-bg-active: #506cdc;
+  --btn-change-clr: var(--btn-inactive);
+  --btn-change-clr-hover: var(--btn-focus);
+    /* 2 */
+  --btn-submit-bg: #2563eb;
+  --btn-submit-bg-hover: #3b82f6;
+  --btn-submit-clr: var(--btn-focus);
+  --btn-submit-tr: all .2s linear;
+    /* 3 */
+  --btn-expand-bg: transparent;
+  --btn-expand-clr: var(--btn-inactive);
+  --btn-expand-clr-hover: var(--btn-focus);
+  --btn-expand-clr-active: var(--btn-focus);
+    /* 4 */
+  --btn-style-bg: transparent;
+  --btn-style-bg-active: var(--btn-focus);
+  --btn-style-clr: var(--btn-inactive);
+  --btn-style-clr-hover: var(--btn-focus);
+  --btn-style-clr-active: var(--btn-dark);
+  --btn-style-bdr: var(--btn-inactive);
+  --btn-style-bdr-hover: var(--btn-focus);
+  --btn-style-bdr-active: var(--btn-focus);
+  --btn-style-hover-shadow: 0 0 10px #f7f7f7;
+    /* 5 */
+  --btn-lock-clr: var(--btn-inactive);
+  --btn-lock-clr-hover: var(--btn-focus);
+  --btn-lock-clr-active: var(--btn-focus);
+  --btn-lock-shadow: var(--btn-toggle-shadow);
+  --btn-lock-active-filter: brightness(150%);
+    /* 6 */
+  --btn-toggle-shadow-svg: var(--btn-shadow-svg);
+  --btn-toggle-shadow-active: var(--btn-toggle-shadow);
+  --btn-toggle-clr: var(--btn-inactive);
+  --btn-toggle-clr-hover: var(--btn-focus);
+  --btn-toggle-clr-active: var(--btn-focus);
+    /* 7 */
+  --btn-found-clr: #0e860e;
+  --btn-found-clr-hover: #16da16;
+  --btn-found-clr-active: #5eff3d;
+  /* 8  AJUSTAR AQUI*/
+  --btn-config-clr: var(--btn-inactive);
+  --btn-config-clr-hover: var(--btn-focus);
+ 
+  /* COLORS  ---------------------------------------------*/
+  --clr-red-200: #fecacc;
+  --clr-red-300: #fda4a8;
+  --clr-red-400: #f97076;
+  --clr-red-500: #f0434a;
+  --clr-red-600: #dd252c;
+  --clr-red-700: #ba1b21;
+  --clr-red-800: #9a1a1f;
+  --clr-red-900: #801c20;
+  --clr-red-950: #450a0c;
+
+  --clr-blue-300: #91caff;
+  --clr-blue-400: #5eacfc;
+  --clr-blue-500: #388af9;
+  --clr-blue-600: #226bee;
+  --clr-blue-700: #1a56db;
+  --clr-blue-800: #1c46b1;
+  --clr-blue-900: #1c3e8c;
+  --clr-blue-950: #09193e;
+  --clr-blue-999: #141b34;
+  
+  --clr-white-50: #f7f7f7;
+  --clr-white-100: #ededed;
+  --clr-white-200: #dfdfdf;
+  --clr-white-300: #c8c8c8;
+  --clr-white-400: #b3b3b3;
+  --clr-white-500: #999999;
+  --clr-white-600: #888888;
+  --clr-white-700: #7b7b7b;
+  --clr-white-800: #676767;
+  --clr-white-900: #545454;
+  --clr-white-950: #363636;
+
+  --clr-clay-50: #f5f6fa;
+  --clr-clay-100: #e9ecf5;
+  --clr-clay-200: #cfd7e8;
+  --clr-clay-300: #a4b6d5;
+  --clr-clay-400: #748fbc;
+  --clr-clay-500: #5271a5;
+  --clr-clay-600: #3f588a;
+  --clr-clay-700: #344870;
+  --clr-clay-800: #2e3e5e;
+  --clr-clay-900: #2a3650;
+  --clr-clay-950: #20283c;
+
+
+  
+
+  /* ESTILOS A TEXTAREA DE SALIDA */
+  --txt-out-bg: #1c2333;
+  --txt-out-bdr: #364a9b;
+  --txt-out-bdr-active: #425ab8;
+  --txt-out-clr: var(--clr-title);
+  /* MODAL DE CONFIGURACION DE ESTILOS */
+  --mdl-cfg-bg: #222222;
+  --shadow-lg: 3px;
+  --shadow-lg-blr: 10px;
+  --shadow-clr-1: #212121;
+  --shadow-clr-2: #000000;
+  --mdl-cfg-shadow:
+    calc(var(--shadow-lg) * -1) calc(var(--shadow-lg) * -1) var(--shadow-lg-blr) var(--shadow-clr-1),
+    var(--shadow-lg) var(--shadow-lg) var(--shadow-lg-blr) var(--shadow-clr-2);
+}
+::-webkit-scrollbar{
+  background: #1b192e;
+  cursor:pointer;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background: #364a9b;
+  transition: background .3s var(--tr-e-out);
+  cursor: pointer;
+  border-radius: 5px;
+  /* display: none; */
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #3650ba;
+  cursor: pointer;
+}
+::-webkit-scrollbar-track{
+  display: none;
+}
+
+
+*, *::before, *::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  outline: none;
+  border:0;
+}
+
+button{
+  background: none;
+}
+button[type="button"],
+button[type="submit"]{
+  cursor: pointer;
+}
+* > li{
+  list-style: none;
+  color:inherit;
+  background:inherit;
+}
+* > a{
+  text-decoration: none;
+  color: inherit;
+  background: inherit;
+}
+* > svg,
+* > path{
+  pointer-events: none;
+}
+input{
+  max-width: 100%;
+}
+div > span {
+  display: block;
+}
+
+input::-webkit-search-cancel-button{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="grey" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  transition: background var(--tr-e-out);
+}
+input:hover::-webkit-search-cancel-button{
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>');
+}
+
+@font-face {
+  font-family: 'smile';
+  src: url("../fonts/Always-Smile.otf"), format('.otf');
+}
+@font-face {
+  font-family: 'fire';
+  src: url("../fonts/Breathe\ Fire\ IV.otf"), format('.otf');
+}
+@font-face {
+  font-family: 'street';
+  src: url("../fonts/docallismeonstreet.otf"), format('.otf');
+}
+@font-face {
+  font-family: 'glitch';
+  src: url("../fonts/Doctor\ Glitch.otf"), format('.otf');
+}
+@font-face {
+  font-family: 'roboto-black';
+  src: url("../fonts/Roboto-BlackItalic.ttf"), format('.ttf');
+}
+@font-face {
+  font-family: 'robot-medium';
+  src: url("../fonts/Roboto-Medium.ttf"), format('.tff');
+}

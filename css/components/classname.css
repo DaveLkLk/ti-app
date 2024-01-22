@@ -1,0 +1,361 @@
+/* LABEL */
+.label{
+  color: var(--clr-title);
+  font-weight: bold;
+}
+.label-sm{
+  color: var(--clr-inactive);
+  font-size: .9rem;
+}
+.label-line{
+  --size: .9rem;
+  font-size: var(--size);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+.label-btn{
+  padding: .5rem;
+  color: var(--lbl-clr);
+  background: var(--lbl-bg);
+  border-color: var(--lbl-clr);
+}
+.label-btn:hover{
+  color: var(--clr-active);
+  border-color: var(--clr-active);
+}
+/* ----------------------------------- */
+.text_title{
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: glitch;
+  text-shadow: 0 0 10px #5265c6e9;
+  letter-spacing: 5px;
+  color: var(--clr-title);
+  word-spacing: 5px;
+  line-height: 40px;
+}
+.just-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.just-end{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.just-start{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* ORGANIZAR BLOQUES */
+  /* 1 - CONTENIDO + ICONO */
+/* CLASE PARA CONTENIDO + ICONO */
+/* FORM PANEL DEFAULT */
+.form-panel{
+  min-width: 300px;
+  display:grid;
+  padding: 2rem;
+  gap: 1rem;
+  background: var(--sct-card-bg);
+  box-shadow: var(--sct-card-shadow);
+}
+.form_group{
+  display: grid;
+  gap:1rem;
+}
+  .form_group .form_input{
+    width: 100%;
+    padding: .5rem;
+    font-size: 1rem;
+    background: var(--form-inp-bg);
+    color: var(--clr-white-500);
+    transition: color var(--tr-e-out);
+  }
+  .form_group .form_input:hover,
+  .form_group .form_input:focus{
+    color: var(--clr-white-100);
+  }
+
+.form_group-row{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .5rem;
+  align-items: flex-start;
+}
+.form_group-rowcenter{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .5rem;
+  align-items: center;
+}
+.form_group-col3{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: .5rem;
+  align-items: center;
+}
+.form_group-col4{
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: .5rem;
+  align-items: center;
+}
+
+/* BUTTONS ICON STYLE */
+.btn_form{
+  margin: auto;
+  width: 100%;
+  max-width: 12rem;
+  padding: 1rem;
+  border-radius: var(--btn-submit-radius);
+}
+
+.btn_menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-menu);
+  height: var(--size-menu);
+}
+.btn_menu svg{
+  width: calc(var(--size-menu) * 0.7);
+  height: calc(var(--size-menu) * 0.7);
+  background: transparent;
+  fill: var(--clr-btn);
+  transition: fill var(--tr-linear);
+}
+.btn_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size-icon);
+  height: var(--size-icon);
+  border-radius: var(--btn-icon-radius);
+}
+.btn_icon svg{
+  width: calc(var(--size-icon) * 0.7);
+  height: calc(var(--size-icon) * 0.7);
+  background: transparent;
+  fill: var(--clr-btn);
+  transition: fill var(--tr-linear), transform var(--tr-e-out), filter var(--tr-e-out);
+}
+.btn_item svg{
+  width: calc(var(--size-icon) * 0.6);
+  height: calc(var(--size-icon) * 0.6);
+  background: transparent;
+  fill: var(--clr-btn);
+  transition: fill var(--tr-linear);
+}
+.img-icon{
+  width: calc(var(--size-icon) * 0.7);
+  height: calc(var(--size-icon) * 0.7);
+  max-width: var(--size-icon);
+  max-height: var(--size-icon);
+  object-fit: cover;
+  filter: invert(1);
+}
+/* BTN SHOW MENU HAMBURGUER */
+.btn_show{
+  visibility: hidden;
+  transform: scale(0);
+  --clr-btn: var(--clr-clay-400);
+  scale: 1;
+  transition: visibility var(--tr-e-out), transform var(--tr-e-out), scale var(--tr-e-out);
+}
+.btn_show:hover{
+  --clr-btn: var(--clr-clay-200);
+}
+.btn_show:active{
+  scale: 0.95;
+}
+
+/* boton switch */
+.btn_lock{
+  position: relative;
+  border-radius: 50%;
+  --clr-btn: var(--btn-lock-clr);
+  transition: box-shadow var( --tr-e-out), filter var( --tr-e-out);
+}
+.btn_lock:hover{
+  --clr-btn: var(--btn-lock-clr-hover)
+}
+.btn_lock svg:last-child{
+  position: absolute;
+  inset: 0;
+  margin:auto;
+  transform: scale(0);
+}
+.btn_lock--active{
+  box-shadow: var(--btn-lock-shadow);
+  --clr-btn: var(--btn-lock-clr-active);
+}
+.btn_lock--active:hover{
+  filter: var(--btn-lock-active-filter);
+}
+.btn_lock--active svg:first-child{
+  transform: scale(0);
+}
+.btn_lock--active svg:last-child{
+  transform: scale(1);
+}
+/* boton de copiar y pegar */
+.btn_change{
+  background: var(--btn-change-bg);
+  --clr-btn: var( --btn-change-clr);
+  transition: background var(--tr-linear);
+}
+.btn_change:hover{
+  background: var(--btn-change-bg-hover);
+  --clr-btn: var( --btn-change-clr-hover);
+}
+.btn_change:active{
+  transition: none;
+  background: var(--btn-change-bg-active);
+  --clr-btn: var( --btn-change-clr-hover);
+}
+/* boton de enviar del formulario*/
+.btn_submit{
+  background: var(--btn-submit-bg);
+  color: var( --btn-submit-clr);
+  transition: var(--btn-submit-tr);
+}
+.btn_submit:hover{
+  background: var(--btn-submit-bg-hover);
+}
+.btn_submit:active{
+  /* opacity: 0.8; */
+  transform: scale(0.980);
+}
+/* boton para expandir contenido */
+.btn_expand{
+  background: var(--btn-expand-bg);
+  --clr-btn: var( --btn-expand-clr);
+  transition: transform var(--tr-e-out);
+}
+.btn_expand:hover{
+  --clr-btn: var( --btn-expand-clr-hover);
+}
+.btn_expand--active{
+  --clr-btn: var( --btn-expand-clr-active);
+  transform: rotate(135deg) scale(1.5);
+}
+
+/* boton de estilos de fuente */
+.btn_item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size-icon);
+  height: var(--size-icon);
+  border-radius: var(--btn-icon-radius);
+}
+.btn_style{
+  background: var(--btn-style-bg);
+  border: 1px solid var(--btn-style-bdr);
+  --clr-btn: var( --btn-style-clr);
+  transition: border-color var(--tr-e-out), background var(--tr-e-out), box-shadow var(--tr-e-out);
+}
+.btn_style:hover{
+  border-color: var(--btn-style-bdr-hover);
+  --clr-btn: var( --btn-style-clr-hover);
+}
+.btn_style--active{
+  background: var(--btn-style-bg-active);
+  border-color: var(--btn-style-bdr-active);
+  --clr-btn: var( --btn-style-clr-active);
+}
+.btn_style--active:hover{
+  box-shadow: var(--btn-style-hover-shadow);
+  --clr-btn: var( --btn-style-clr-active);
+}
+
+/* boton que solo cambia la clase activo */
+.btn_toggle{
+  border-radius: 50%;
+  transition: transform var( --tr-e-out), box-shadow var( --tr-linear), filter var( --tr-linear);
+  --clr-btn: var(--btn-toggle-clr);
+}
+.btn_toggle:hover{
+  --clr-btn: var( --btn-toggle-clr-hover);
+}
+.btn_toggle:active{
+  transform: scale(0.7);
+}
+.btn_toggle--active{
+  --clr-btn: var( --btn-toggle-clr-active);
+  box-shadow: var( --btn-toggle-shadow-active);
+}
+.btn_toggle--active:hover{
+  filter: brightness(150%);
+}
+/* BOTON CONGIG */
+.btn_config{
+  --clr-btn: var(--btn-config-clr);
+}
+.btn_config:hover{
+  --clr-btn: var(--btn-config-clr-hover);
+}
+/* BOTON DELETE */
+.btn_delete{
+  cursor: pointer;
+  --clr-btn: var(--clr-red-800);
+  transition: all var( --tr-e-out);
+}
+.btn_delete:hover{
+  --clr-btn: var(--clr-red-500);
+}
+.btn_delete:active{
+  transform: scale(0.9);
+  --clr-btn: var(--clr-red-400);
+}
+/* BOTON GROUP DE CADA TEXTO */
+.btn_copy{
+  --clr-btn: var(--clr-blue-800);
+  transition: transform var( --tr-e-out);
+}
+.btn_copy:hover{
+  --clr-btn: var(--clr-blue-500);
+}
+.btn_copy:active{
+  --clr-btn: var(--clr-blue-400);
+  transform: scale(0.85)
+}
+/* BUTTON FIJAR */
+.btn_fixed{
+  --clr-btn: var(--clr-white-800);
+  transition: transform var(--tr-e-out);
+}
+.btn_fixed:hover{
+  --clr-btn: var(--clr-white-300);
+}
+.btn_fixed:active{
+  --clr-btn: var(--clr-white-100);
+  transform: rotate(20deg) scale(0.900);
+}
+.btn_fixed--active{
+  --clr-btn: var(--clr-white-100);
+  transform: rotate(20deg) scale(0.900);
+}
+
+
+/* OUTPUT - TEXT */
+.txt_bold{
+  font-weight: bold;
+}
+.txt_italic{
+  font-style: italic;
+}
+.txt_underline{
+  text-decoration: underline;
+}
+.txt_strike{
+  text-decoration: line-through;
+}
+

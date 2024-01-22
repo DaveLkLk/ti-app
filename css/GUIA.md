@@ -1,0 +1,63 @@
+# GUIA DE LAS CLASES y DATASET CSS
+  -> Descripción de cada clase
+  
+## ✅ LABEL => origen: [classname.css, dataset.css]
+- **.label**
+  - props: [color, font-weight]
+  - variables: [--clr-title]
+- **.label-sm**
+  - props: [color, font-size]
+  - variables: [--clr-inactive]
+- **.label-line**
+  - props: [font-size, text-overflow]
+  - variables: []
+- **.label-btn**
+  - regla: requiere que el padre tenga la variable establecida.
+  - descripcion: Uso del label con efecto de boton (hover, active)
+  - props: [padding, color, background, border-color]
+  - variables: [--lbl-clr, --lbl-bg]
+  - variables-change: [--clr-active]
+  - pseudoclass: [:hover]
+- **label[data-for="button"]**
+  - regla: requiere de clases para formalizar
+  - descripcion: Aspecto de boton y transicion adicional
+  - props: [cursor, transform, transform-origin, transition]
+  - variables: []
+  - pseudoclass: [:active]
+
+## ✅ BUTTON => [classname.css, dataset.css]
+- **.btn_icon**
+  - regla:
+  - descripcion:
+  - props: [display, justify-content, align-items, width, height, border-radius]
+  - variables: [--size-icon, --btn-icon-radius]
+  - pseudoclass: []
+  - childs: [svg]
+- **.btn_item**
+  - regla:
+  - descripcion:
+  - props: [display, justify-content, align-items, width, height, border-radius]
+  - variables: [--size-icon, --btn-icon-radius]
+  - peseudoclass: []
+  - childs: [svg]
+- **.btn_submit**
+  - regla:
+  - descripcion:
+  - props: [background, color, transition]
+  - variables: [--btn-submit-bg, --btn-submit-clr]
+  - variables-change: [--btn-submit-bg-hover, --btn-submit-bg-active]
+  - peseudoclass: [:hover, :active]
+  - childs: []
+- **.btn_lock**
+  - regla:
+  - descripcion:
+  - props: [position, border-radius, transition]
+  - variables: [--clr-btn]
+  - variables-change: [--btn-lock-clr-hover]
+  - peseudoclass: [:hover, :active]
+  - childs: [2 svg]
+  - active: [.btn_lock--active]
+  - active-props: [box-shadow]
+  - active-vars: [--btn-lock-shadow, --btn-lock-clr-active]
+  - active-vars-change: [--btn-lock-active-filter]
+  - active-pseudoclas: [:hover]

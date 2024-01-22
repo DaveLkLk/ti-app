@@ -1,0 +1,154 @@
+.content_office{
+    width: 100%;
+    display: grid;
+    gap: 2rem;
+}
+
+.office_group-search{
+    /* margin: auto; */
+    display: grid;
+    /* grid-auto-columns: max-content; */
+    grid-template-areas:
+        "search form indicator";
+    transition: grid-template-areas .5s linear;
+    gap: 2rem;
+}
+
+.office_search-config{
+    grid-area: search;
+    transition: grid-area .5s linear;
+    display: flex;
+    align-items: center;
+    padding: 3px 0 3px 1em;
+    gap: 1em;
+    padding: 1rem 2rem;
+
+    background: var(--clr-clay-950);
+    box-shadow: var(--sct-card-shadow);
+    --size: 60px;
+    --circle: 0.7;
+    --inactive: var(--clr-clay-800);
+    --active: var(--clr-clay-400);
+    --clr-circle: var(--clr-clay-300);
+    --clr-circle-active: var(--clr-clay-50);
+}
+    .office_search-config span{
+        pointer-events: none;
+        color: var(--clr-white-600);
+        transition: color var(--tr-e-out);
+    }
+    .office_search-config:hover span{
+        color: var(--clr-clay-200);
+    }
+    .office_search-config .office_toggle{
+        position: relative;
+        cursor: pointer;
+        background: var(--inactive);
+        width: var(--size);
+        min-width: var(--size);
+        height: calc(var(--size) - calc(var(--size) * 0.60));
+        border-radius: calc(var(--size) - calc(var(--size) * 0.5));
+        transition: left .5s, right .5s, background .5s;
+    }
+    .office_toggle .circle-toggle{
+        position: absolute;
+        --circle-width: calc(var(--size) - calc(var(--size) * var(--circle)));
+        --circle-height: calc(var(--size) - calc(var(--size) * var(--circle)));
+        width: var(--circle-width);
+        min-width: var(--circle-width);
+        height: var(--circle-height);
+        background: var(--clr-circle);
+        border-radius: 50%;
+        top: calc(50% - calc(calc(var(--size) - calc(var(--size) * var(--circle))) / 2));
+        transform: translateX(4px);
+        transition: transform var(--tr-e-out), background var(--tr-e-out);
+    }
+    .office_toggle.office_toggle--active{
+        background: var(--active);
+    }
+    .office_toggle.office_toggle--active .circle-toggle{
+        transform: translateX(calc(var(--size) * 0.6));
+        background: var(--clr-circle-active);
+    }
+
+.office_group-search .form_search{
+    grid-area: form;
+}
+    .office_group-search .form_search--active{
+        box-shadow: var(--sct-card-shadow-active);
+    } 
+
+.office_group-search .office_search-indicator{
+    grid-area: indicator;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: 1rem;
+    background: var(--clr-clay-950);
+    box-shadow: var(--sct-card-shadow);
+    color: var(--clr-white-500);
+    transition: all var(--tr-e-out);
+}
+.office_search-indicator .indicator_count{
+    text-align: center;
+    font-size: 2rem;
+}
+.office_search-indicator p{
+    font-size: .8rem;
+}
+.office_search-indicator:hover{
+    color: var(--clr-clay-200);
+}
+
+.office_item .office_result{
+    --card-w: 15.625rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--card-w), 100%), 1fr));
+    gap: 1rem;
+}
+    .office_result-card{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1rem;
+        max-width: var(--card-w);
+        width: 100%;
+        height: auto;
+        background: var(--clr-clay-900);
+        box-shadow: 
+            -2px -2px 5px #1d202ca6,
+            2px 2px 5px #38425fbd;
+        transition: background var(--tr-e-out);
+        --clr-office: var(--clr-clay-300);
+        --bg-anexo: var(--clr-clay-950);
+        --clr-anexo: var(--clr-clay-200);
+    }
+    .office_result-card:hover{
+        background: var(--clr-clay-800);
+        --clr-office: var(--clr-clay-100);
+    }
+    .office_result-card .anexo{
+        font-size: 2rem;
+        font-weight: bolder;
+        padding: 1rem;
+        background: var(--bg-anexo);
+        color: var(--clr-anexo);
+        border-radius: 10px;
+        box-shadow: 
+            inset 2px 2px 4px #1a1919d2,
+            inset -2px -2px 2px #3f4768bb;
+    }
+    .office_result-card .oficina{
+        font-size: 1rem;
+        text-overflow: ellipsis;
+        padding: 1rem;
+        border-radius: 10px;
+        color: var(--clr-office);
+        transition: color var(--tr-e-out);
+    }
+    .office_result-card .not_found{
+        font-size: 1.2rem;
+        color: var(--clr-white-400);
+    }

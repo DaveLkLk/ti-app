@@ -1,0 +1,120 @@
+.not--found{
+    max-width: 1000px;
+    margin: auto;
+    padding: 1em;
+}
+.not--found h1{
+    color: #ffffff;
+}
+.not--found h2{
+    color: #c5c5c5;
+}
+.not--found small{
+    color: #a9a9a9;
+    font-style: italic;
+    margin: 0 0 0 2em;
+    --clr-a: #22e2b5;
+}
+.not--found small a{
+    text-decoration: none;
+    font-weight: bolder;
+    color: var(--clr-a);
+    margin: 0 .2em 0;
+    border-bottom: 1px solid var(--clr-a);
+    transition: margin .2s linear;
+}
+.not--found small a:hover{
+    margin: 0 .5em;
+}
+
+.support{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2em;
+    margin-top: 5em;
+    
+    --size: 500px;
+}
+.support .support-animate{
+    position: relative;
+    width: var(--size);
+    height: calc(var(--size) / 2);
+}
+.support-animate:before,
+.support-animate:after{
+    content: '';
+    position: absolute;
+    width: calc(var(--size) / 2);
+    height: calc(var(--size) / 2);
+    background-image: url(../../assets/config.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: width var(--tr-e-out);
+}
+.support-animate:before{
+    left: 0;
+    filter: drop-shadow(0 0 20px #8a1e1e) invert(1);
+    animation: giro1 5s infinite linear forwards;
+    --invert: 7%;
+}
+.support-animate:after{
+    filter: invert(80%);
+    right: 10px;
+    animation: giro2 5s infinite linear forwards;
+    animation-delay: -.9s;
+    --invert: 12%;
+}
+@keyframes giro1{
+    0%{
+        transform: rotate(360deg);
+        filter: drop-shadow(0 0 20px #2e8a1e) invert(var(--invert));
+
+    }
+    50%{
+        filter: drop-shadow(0 0 20px #be21b8) invert(var(--invert));
+    }
+    80%{
+        filter: drop-shadow(0 0 20px #bec71d) invert(var(--invert));
+    }
+    100%{
+        filter: drop-shadow(0 0 20px #2e8a1e) invert(var(--invert));
+    }
+}
+@keyframes giro2 {
+    0%{
+        transform: rotate(-360deg);
+        filter: drop-shadow(0 0 20px #401e8a) invert(var(--invert));
+    }
+    50%{
+        filter: drop-shadow(0 0 20px #ca1111) invert(var(--invert));
+    }
+    80%{
+        filter: drop-shadow(0 0 20px #15dbde) invert(var(--invert));
+    }
+    100%{
+        filter: drop-shadow(0 0 20px #401e8a) invert(var(--invert));
+    }
+}
+@media screen and (max-width: 968px) {
+    .support{
+        --size: 350px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .support{
+        --size: 250px;
+    }
+}
+@media screen and (max-width: 568px) {
+    .support{
+        --size: 150px;
+    }
+    .support-animate:after{
+        right: 5px;
+    }
+}
