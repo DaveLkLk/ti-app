@@ -5,7 +5,7 @@ function pageTitleAnexo(){
     const div = document.createElement("div");
     div.classList.add('content_title')
     div.innerHTML = `
-        <h1 class="text_title">Gestión de Directorios UNTELS</h1>
+        <h1 class="text_title">Directorios UNTELS</h1>
     `;
     return div;
 }

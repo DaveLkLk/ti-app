@@ -30,8 +30,8 @@
 /* ----------------------------------- */
 .text_title{
   text-align: center;
-  font-size: 1.8rem;
-  font-family: glitch;
+  font-size: 2rem;
+  font-family: roboto-black, system-ui;
   text-shadow: 0 0 10px #5265c6e9;
   letter-spacing: 5px;
   color: var(--clr-title);
