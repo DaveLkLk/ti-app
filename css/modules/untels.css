@@ -17,7 +17,7 @@
 .office_search-config{
     grid-area: search;
     transition: grid-area .5s linear;
-    display: flex;
+    display: grid;
     align-items: center;
     padding: 3px 0 3px 1em;
     gap: 1em;
@@ -32,6 +32,11 @@
     --clr-circle: var(--clr-clay-300);
     --clr-circle-active: var(--clr-clay-50);
 }
+    .office_search-config .label_toggle{
+        display: flex;
+        gap: 1em;
+
+    }
     .office_search-config span{
         pointer-events: none;
         color: var(--clr-white-600);

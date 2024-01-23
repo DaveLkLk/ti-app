@@ -48,7 +48,8 @@ export const MESSAGE_TYPE = {
     UNLOCK_STYLES: 'Estilos desbloqueado',
     PIN_SUCCESS: 'Elemento fijado',
     PIN_ERROR: 'Error al intentar fijar el elemento',
-    SEARCH_DINAMYC: 'Búsqueda dinámica activada'
+    SEARCH_DINAMYC: 'Búsqueda dinámica activada',
+    SEARCH_ANEXO: 'Búsqueda por anexo activado'
 };
 
 // Eliminar clases del tipo temp si ya existian

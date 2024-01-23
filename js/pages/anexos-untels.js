@@ -20,16 +20,24 @@ function pageContentAnexo(){
     <!-- BUSQUEDA DE OFICINAS -->
     <div class="office_item office_group-search">
       <div class="office_search-config">
-        <span>Búsqueda dinámica:</span>
-        <div class="office_toggle" id="search-dinamyc" data-class="office_toggle" title="desactivar / activar">
-          <div class="circle-toggle"></div>
+        <div class="label_toggle">
+          <span>Búsqueda dinámica:</span>
+          <div class="office_toggle" id="search-dinamyc" data-class="office_toggle" title="desactivar / activar">
+            <div class="circle-toggle"></div>
+          </div>
+        </div>
+        <div class="label_toggle">
+          <span>Búsqueda por Anexo</span>
+          <div class="office_toggle" id="search-anexo" data-class="office_toggle" title="desactivar / activar">
+            <div class="circle-toggle"></div>
+          </div>
         </div>
       </div>
       <form class="form_search form-panel" id="office-form-search" data-class="form_search">
         <div class="form_group">
           <div class="form_group-row">
-            <input type="search" id="office-inp-search" placeholder="buscar.." class="form_input" autocomplete="off" title="escribe aqui 🥴">
-            <button class="btn_icon btn_fixed" type="submit" id="office-btn-search" title="buscar 🥵" data-class="btn_fixed">
+            <input type="search" id="office-inp-search" placeholder="buscar.." class="form_input" autocomplete="off" title="escribe aqui..">
+            <button class="btn_icon btn_fixed" type="submit" id="office-btn-search" title="buscar.." data-class="btn_fixed">
               ${svgLupa()}
             </button>
           </div>

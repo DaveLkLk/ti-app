@@ -27,7 +27,7 @@ export const anexosDirectivos = [
     { id: 26, office: "Contabilidad - Jefatura", anexo: 166 },
     { id: 27, office: "Control Patrimonial", anexo: 155 },
     { id: 28, office: "Cooperación", anexo: 121 },
-    { id: 29, office: "Dirección General de Administración - DGA", anexo: 118 },
+    { id: 29, office: "DGA - Dirección General de Administración", anexo: 118 },
     { id: 30, office: "Escuela Profesional de Administración de Empresas", anexo: 129 },
     { id: 31, office: "Escuela Profesional de Ingeniería Ambiental", anexo: 126 },
     { id: 32, office: "Escuela Profesional de Ingeniería de Sistemas", anexo: 128 },
@@ -60,7 +60,7 @@ export const anexosDirectivos = [
     { id: 59, office: "Presidencia - Asistente", anexo: 159 },
     { id: 60, office: "Presidencia - Jefatura", anexo: 107 },
     { id: 61, office: "Presidencia - Secretaria", anexo: 106 },
-    { id: 62, office: "Prospectiva", anexo: 120 },
+    { id: 62, office: "OGAP - Prospectiva", anexo: 120 },
     { id: 63, office: "Proyectos, Infraestructura y Servicios Generales", anexo: 190 },
     { id: 64, office: "Recursos Humanos", anexo: 130 },
     { id: 65, office: "Registros Académicos - Jefatura", anexo: 146 },
@@ -83,7 +83,12 @@ export const anexosDirectivos = [
     { id: 82, office: "Vicepresidencia Investigación - Secretaria", anexo: 108 },
     { id: 83, office: "Vigilancia (Puerta Principal)", anexo: 199 },
     { id: 84, office: "Postgrado", anexo: 169 },
-    { id: 85, office: "Mesa de Partes", anexo: 101}
+    { id: 85, office: "Mesa de Partes", anexo: 101},
+    { id: 86, office: "Defensoría Universitaria", anexo: 160},
+    { id: 87, office: "Recursos Humanos - Jefatura", anexo: 104},
+    { id: 88, office: "Unidad Ejecutora de Inversiones", anexo: 191},
+    { id: 89, office: "RSU - Responsabilidad Social Universitaria", anexo: 153},
+    { id: 90, office: "RSU - Responsabilidad Social Universitaria - Secretaria", anexo: 113},
   ];
   
 function deleteAccentMark(str){
@@ -102,6 +107,18 @@ export function getOffice(str){
       console.log("Error en el tipo de parametro")
       return
   }
-  const inputFilter = anexosDirectivos.filter(card => deleteAccentMark(card.office.toLowerCase()).includes(str))
+  const inputFilter = anexosDirectivos.filter(card => deleteAccentMark(card.office.toLowerCase()).includes(str.trim()))
   return inputFilter; 
+}
+export function getAnexo(anx){
+  const anxStr = String(anx)
+  if(anxStr.trim() === '000' || anxStr.trim() === '0000'){
+    console.log("búsqueda en ceros no permitida");
+    return []
+  }
+  if(typeof anx !== 'number'){
+    throw new Error("Error en el tipo de parámetro")
+  }
+  const listAnexos = anexosDirectivos.filter(card => String(card.anexo).startsWith(String(anx)))
+  return listAnexos
 }
