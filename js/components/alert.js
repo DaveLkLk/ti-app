@@ -49,7 +49,8 @@ export const MESSAGE_TYPE = {
     PIN_SUCCESS: 'Elemento fijado',
     PIN_ERROR: 'Error al intentar fijar el elemento',
     SEARCH_DINAMYC: 'Búsqueda dinámica activada',
-    SEARCH_ANEXO: 'Búsqueda por anexo activado'
+    SEARCH_ANEXO: 'Búsqueda por anexo activado',
+    CLEAR_SPACES: 'Quitar exceso de espacios'
 };
 
 // Eliminar clases del tipo temp si ya existian

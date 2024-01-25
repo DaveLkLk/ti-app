@@ -61,7 +61,7 @@ export function getEvents(section){
     btnLockStyles.classList.add(`${btnLockStyles.dataset.class}--active`)
   }
 
-  function validateElementActive(element){
+  function validateElementActive(element, msgOn, msgOff){
     if(!(element instanceof HTMLElement)){
       throw new Error("Parámetro inválido", element)
     }
@@ -70,11 +70,12 @@ export function getEvents(section){
 
     const isActive = element.classList.contains(`${element.dataset.class}--active`);
     if(isActive){
-      element.setAttribute('title', 'estilos bloqueado')
-      createAlert(divAlert, MESSAGE_TYPE.LOCK_STYLES, ALERT_TYPE.TEMP.success, [], 1100)
+      element.setAttribute('title', msgOn)
+      createAlert(divAlert, msgOn, ALERT_TYPE.TEMP.success, [], 1100)
     }
     else if(isActive === false){
-      element.setAttribute('title', 'estilos desbloqueado')
+      let msg = msgOff === undefined ? '' : msgOff
+      element.setAttribute('title', msg )
     }
     return isActive
   }
@@ -131,12 +132,12 @@ export function getEvents(section){
   typeStyleText(containerCfgStyle, textOutput)
   
   btnLockStyles.addEventListener('click', ()=>{
-    const isActive = validateElementActive(btnLockStyles);
+    const isActive = validateElementActive(btnLockStyles, MESSAGE_TYPE.LOCK_STYLES, MESSAGE_TYPE.UNLOCK_STYLES);
     addLocalStorage(stylesLocalStorage.STYLES_BLOQUED, String(isActive))
   })
   btnClearSpace.addEventListener('click', e => {
     // e.target.classList.toggle(`${e.target.dataset.class}--active`)
-    const clearActive = validateElementActive(e.target)
+    const clearActive = validateElementActive(e.target, MESSAGE_TYPE.CLEAR_SPACES)
     clearSpaceActive(e.target, textOutput)
     addLocalStorage(stylesLocalStorage.BTN_CLEAR, String(clearActive))
   })
