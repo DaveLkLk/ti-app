@@ -1,2 +1,4 @@
 views/
 utils/directivos.js
+node_modules/*
+dist/*

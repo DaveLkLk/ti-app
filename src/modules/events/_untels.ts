@@ -1,7 +1,7 @@
-import { getOffice, getAnexo } from "../../utils/anexos.js";
-import { createOfficeCard } from "../components/layout.js";
-import { createAlert, MESSAGE_TYPE, ALERT_TYPE } from "../components/alert.js"
-import { addLocalStorage } from "../components/window-functions.js";
+import { getOffice, getAnexo } from "../../data/anexos";
+import { createOfficeCard } from "../../layouts/Layout";
+import { createAlert, MESSAGE_TYPE, ALERT_TYPE } from "../../components/alert"
+import { addLocalStorage } from "../../rules/functions";
 
 
 export const anexoLocalStorage = {
@@ -13,21 +13,21 @@ const typeRequest = {
     anx: 'anexo'
 }
 
-export function getEvents(section){
+export function getEvents(section:HTMLElement){
 
-    const divAlert = document.querySelector(".alert");
-    const formOfficeSearch = section.querySelector('#office-form-search')
-    const officeIndicator = section.querySelector('#office-result-indicator')
-    const text = formOfficeSearch.querySelector('#office-inp-search')
-    const btnForm = formOfficeSearch.querySelector('#office-btn-search')
-    const searchToggle = section.querySelector('#search-dinamyc')
-    const searchAnexoToggle = section.querySelector('#search-anexo')
-    const officeResponse = section.querySelector('.office_result')
+    const divAlert = document.querySelector(".alert") as HTMLElement;
+    const formOfficeSearch = section.querySelector('#office-form-search') as HTMLFormElement;
+    const officeIndicator = section.querySelector('#office-result-indicator') as HTMLElement
+    const text = formOfficeSearch.querySelector('#office-inp-search') as HTMLInputElement
+    const btnForm = formOfficeSearch.querySelector('#office-btn-search') as HTMLButtonElement
+    const searchToggle = section.querySelector('#search-dinamyc') as HTMLElement
+    const searchAnexoToggle = section.querySelector('#search-anexo') as HTMLElement
+    const officeResponse = section.querySelector('.office_result') as HTMLElement
     
     let switchToggle = false
     let switchAnx = false
     
-    function validateType(type, boolean) {
+    function validateType(type:string, boolean:Boolean) {
         if(type === undefined || boolean === undefined){
             throw new Error('error en los parámetros recibidos')
         }
@@ -41,7 +41,7 @@ export function getEvents(section){
             if(type === typeRequest.anx) switchAnx = false
         }
     }
-    function validateElementActive(element, msg, type){
+    function validateElementActive(element:HTMLElement, msg:string, type:string){
         if(element === undefined || msg === undefined || type === undefined){
             throw new Error("Parámetros no definidos")
         }
@@ -54,7 +54,7 @@ export function getEvents(section){
         }
         return isActive
     }
-    function searchActive(type){
+    function searchActive(type:string){
         const targetInput = text.value.toLowerCase();
         officeResponse.innerHTML = '';
         if (targetInput === '') {
@@ -62,8 +62,8 @@ export function getEvents(section){
             return;
         }
         const matchingItems = type === typeRequest.ofc ? getOffice(targetInput) : getAnexo(Number(text.value));
-        if(matchingItems.length === 0){
-            officeIndicator.textContent = 0
+        if(matchingItems && matchingItems.length === 0){
+            officeIndicator.textContent = '0'
             officeResponse.innerHTML = `
             <div class="office_result-card">
                 <p class="not_found">No se econtraron resultados..</p>
@@ -71,8 +71,8 @@ export function getEvents(section){
             `;
             return
         }
-        officeIndicator.textContent = matchingItems.length       
-        matchingItems.forEach(item => {
+        officeIndicator.textContent = matchingItems ? matchingItems.length.toString() : null
+        matchingItems && matchingItems.forEach((item:any) => {
             officeResponse.innerHTML += createOfficeCard(item).outerHTML;
         });
     }
@@ -100,12 +100,12 @@ export function getEvents(section){
         addLocalStorage(anexoLocalStorage.SEARCH_ANEXO, String(isActive))
     })
     
-    formOfficeSearch.addEventListener('submit', async (e)=>{
+    formOfficeSearch.addEventListener('submit', async (e:any)=>{
         e.preventDefault();
         if(text.value === ''){
             officeIndicator.textContent = '-'
             officeResponse.innerHTML = '';
-            createAlert(divAlert, MESSAGE_TYPE.INFO_VACIO, ALERT_TYPE.TEMP.info, [btnForm,text], 1800)
+            createAlert(divAlert, MESSAGE_TYPE.INFO_VACIO, ALERT_TYPE.TEMP.info, [], 1800)
             return
         }
         formOfficeSearch.classList.add(`${formOfficeSearch.dataset.class}--active`)

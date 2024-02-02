@@ -1,3 +1,4 @@
+import { AnyInputs } from "../rules/types";
 // CSS ALERT
 export const ALERT_TYPE = {
     INFO: "alert--info",
@@ -52,16 +53,14 @@ export const MESSAGE_TYPE = {
 };
 
 // Eliminar clases del tipo temp si ya existian
-function setClassTemp(arrClass){
-  const classTempArr = Array.from(arrClass).filter(clase => 
-    clase.startsWith('alert--temp')
-  );
+function setClassTemp(arrClass:DOMTokenList){
+  const classTempArr = Array.from(arrClass).filter(clase => clase.startsWith('alert--temp'));
   if(classTempArr.length > 0){
     classTempArr.forEach(clase => arrClass.remove(clase))
   }
 }
 
-export function borrarContenido(arr){
+export function borrarContenido(arr:Array<HTMLElement>){
     arr.forEach(item => {
         if(item instanceof HTMLInputElement){
             return item.value = ''
@@ -70,25 +69,28 @@ export function borrarContenido(arr){
         }
     })
 };
-export function inputDisabled(items){
-    items.forEach(item =>{
-      console.log(item instanceof HTMLButtonElement);
-        item.disabled = true
-        item.dataset.type === 'button' ? item.style.cursor = 'not-allowed' : null
+export function inputDisabled(inputs:AnyInputs[]){
+  inputs.forEach(item =>{
+      item.disabled = true
+      item.dataset?.type === 'button'
+      ? item.style && (item.style.cursor = 'not-allowed')
+      : null
     })
 };
-export function inputEnabled(items){
+export function inputEnabled(items:AnyInputs[]){
     items.forEach(item =>{
         item.disabled = false
-        item.dataset.type === 'button' ? item.style.cursor = 'pointer' : null
+        item.dataset && item.dataset.type === 'button'
+        ? item.style && (item.style.cursor = 'pointer')
+        : null
     })
 };
 export function createAlert(
-  container, 
-  message, 
-  classAlert, 
-  elementsForm, 
-  timeTemp = 3000)
+  container:HTMLElement, 
+  message:string, 
+  classAlert:string, 
+  elementsForm:AnyInputs[], 
+  timeTemp:number = 3000)
 {
     inputDisabled(elementsForm)
     const alert = container
@@ -101,6 +103,7 @@ export function createAlert(
     alert.classList.add(ALERT_TYPE.ACTIVE)
   // -----------------------------------------------------------------
   //  ELIMINAR CLASES DUPLICADAS DEL TIPO 'alert--temp'
+  // classList devuelve el tipo DOMTokenList   
     setClassTemp(alert.classList)
   // -----------------------------------------------------------------------
     alert.classList.add(classAlert)
@@ -114,7 +117,7 @@ export function createAlert(
     alert.appendChild(buttonAlert)
 
     // CONTROLAR EL TIEMPO DE ESPERA DE LA ALERTA
-    let timeOutID;
+    let timeOutID:any;
     if(Object.values(ALERT_TYPE.TEMP).includes(classAlert)){
         inputEnabled(elementsForm)
         timeOutID = setTimeout(() => {
